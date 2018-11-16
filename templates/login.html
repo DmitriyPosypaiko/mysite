@@ -1,0 +1,67 @@
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Пример на bootstrap 4: Пользовательская форма и дизайн для простой формы входа.">
+  <meta name="author" content="">
+  <link rel="icon" href="../../../../favicon.ico">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link rel="stylesheet" href="/static/css/signin.css" type="text/css">
+      <!-- Custom styles for this template -->
+      <title>Signin Template for Bootstrap</title>
+    </head>
+
+    <body>
+      {% block content %}
+
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="card mx-auto mt-3 shadow mb-5 bg-white rounded" style="width: 25rem;">
+                <div class="card-header" style="color:white;">
+                    <div class="row justify-content-center">Авторизируйтесь</div>
+                </div>
+                <div class="card-body">
+
+                    <form action="{% url 'sign-in' %}" method="post">
+                        {% csrf_token %}
+
+                        {% for field in form %}
+                        <div class="form-group">
+                            {{ field.label_tag }}
+                            {% render_field field class="form-control" %}
+                        </div>
+                        {% endfor %}
+
+                        {% if form.errors %}
+                        {% for error in form.errors.values %}
+                        <div class="alert alert-danger">
+                            {{error}}
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                        <div class="row justify-content-center">
+                            <button type="submit" class="btn btn-primary">
+                                Залогинится
+                            </button>
+                            <div class="btn btn-primary" type="submit">
+                              <a href="sign-up/">Регистрация</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      {% endblock %}
+
+      <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    </body>
+  </html>

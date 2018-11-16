@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="../static/css/card.css" type="text/css">
+    <title>TEST</title>
+  </head>
+  <body>
+  <div class="card-columns">
+    {%for name in product%}
+    <div class="card-deck">
+      <div class="card">
+        <img class="card-img-top" src="{{name.imege.url}}" width="30%" height="60%" alt="...">
+        <h1>{{name.name}}</h1>
+        <h2>{{name.price}}</h2>
+        <div class="card-body">
+          <h5 class="card-title">{{name.short_description}}</h5>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+    <!-- <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <ul>
+            {%for name in category%}
+            <li>
+              <a href="">{{name.name}}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="col-lg-8">
+          <div class="container">
+            <div class="card-deck">
+              {%for name in product%}
+                <div class="card" >
+                  <img class = "card-img-top img-responsive" src="{{name.imege.url}}" width="50%" height="50%"alt="...">
+                  <h1>{{name.name}}</h1>
+                  <h2>{{name.price}}</h2>
+                  <div class="card-body">
+                    <p>{{name.short_description}}</p>
+                    <button type="button" class= "btn btn-news" onclick="location.href = '#'">
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  <!-- </div> -->
+  </body>
+</html>

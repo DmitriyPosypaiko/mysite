@@ -1,0 +1,41 @@
+{% load widget_tweaks %}
+{% load bootstrap4 %}
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Пример на bootstrap 4: Пользовательская форма и дизайн для простой формы входа.">
+  <meta name="author" content="">
+  <link rel="icon" href="../../../../favicon.ico">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link rel="stylesheet" href="/static/css/floating-labeles.css" type="text/css">
+  <title>Регистрация</title>
+
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="container">
+    <h2 class="text-center col-m4 logo">
+    </h2>
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-6 col-sm-8">
+          <form action="" method="post" class='form'>
+            {% csrf_token %}
+            {{reg_form}}
+            {% for field in get_form %}
+            <div class="form-group">
+                {{ field }}
+            </div>
+            {% endfor %}
+            <input class="button" type="submit" value="Зарегестрироваться">
+
+        </<div>
+    </div>
+  </div>
+</body>
